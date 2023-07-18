@@ -1,0 +1,131 @@
+package.json initialisaton
+react
+did a little front end
+learnt
+npm i express
+started with express setup
+mongo atlas congiguraton
+npm i mongoose
+mongo connection
+npm i dotenv
+securing mongo api using dotenv
+defined routes using express
+created schemas
+made models
+defined functons for registration and sign in
+used postman to insert into db
+and sign 
+npm i bcryptjs
+securing password using decrypt using middleware just before save method 
+hashing
+verifying encrypted password during sign in 
+
+cookie-storage of 4kb which stores information in client side browser to identify a user and actions
+session-on server side
+local storage - 5-10 mb , retains data even after browser closed
+session storage-  5-10 mb ,doesnt retain data after browser closed
+
+What is in a JSON Web Token?
+JWT, or JSON Web Token, is an open standard used to share security information between two parties — a client and a server. Each JWT contains encoded JSON objects, including a set of claims. JWTs are signed using a cryptographic algorithm to ensure that the claims cannot be altered after the token is issued.
+
+
+In this updated version, I have added the following elements:
+
+Added a <h2> heading with the caption "Patient Registration" for the form.
+Included a new input field for the phone number, with a dropdown for selecting the country code. This is achieved using the input-group and input-group-prepend classes from Bootstrap.
+Added a <select> dropdown for selecting the gender, with options for "Male," "Female," and "Other."
+
+
+In each of these examples, the form components have a <h2> heading with the appropriate caption ("Patient Login," "Doctor Login," or "Admin Login"). They contain <label> elements for the email, username, and password fields, followed by corresponding <input> elements. Finally, a submit button with the label "Login" is included.
+
+
+ the selectedUserType state variable is used to keep track of the selected user type from the dropdown. The handleUserTypeChange function is called whenever the dropdown value changes, updating the selectedUserType state.
+
+Based on the selected user type, the corresponding component (DoctorForm, AdminForm, or PatientForm) is conditionally rendered below the dropdown using curly braces and logical operators (&&). If the selected user type matches the specific condition, the corresponding component is rendered; otherwise, it remains hidden.
+
+You can customize the DoctorForm, AdminForm, and PatientForm components to include the specific form fields and logic for each user type.
+
+This way, as the user selects a different option in the dropdown, the component below will change dynamically based on the selected option.
+
+send data to backend using axios
+
+cookies
+
+login page synchronized w backend
+
+cookie saved
+
+
+
+//use bcrypt to
+// To hash a password:
+
+// var bcrypt = require('bcryptjs');
+// var salt = bcrypt.genSaltSync(10);
+// var hash = bcrypt.hashSync("B4c0/\/", salt);
+
+
+// Store hash in your password DB.
+
+
+//To check a password:
+
+// Load hash from your password DB.
+// bcrypt.compareSync("B4c0/\/", hash); // true
+// bcrypt.compareSync("not_bacon", hash); // false
+// Auto-gen a salt and hash:
+
+
+// - Cookie is used to store session id (Generated from username, password) and other info, like last website visited, actions performed on site etc
+// - If you delete cookie, you will signed out of a website
+// - A website can use many types of cookies
+// -  Size of cookies is 4 kb
+// - If someone else copies cookie( session id ), they may impersonate the real user
+// - Since HTTP is stateless, session id is used for state management
+
+//provinding authentication using jwtoken stoored in brower before giving access to admin page,doctor page and patient page
+
+
+
+const jwt=require('jsonwebtoken')
+const Patient=require('../model/Patient')
+
+
+const AuthenticatePatient=async(req,res,next)=>{
+   try{
+
+        const token=req.cookies.jwtoken;
+        const verifyToken =jwt.verify(token,process.env.SECRET_KEY);
+        const rootUser=await Patient.findOne({_id:verifyToken._id,"tokens.token":token})
+    
+        if(!rootUser){
+            res.status(401).send("Unauthorized:no token provided");
+        }
+                 
+            req.token=token;
+            req.rootUser=rootUser;
+            req._id=rootUser._id;
+ 
+        next();
+
+   }catch(err){
+        res.status(401).send("Unauthorized:no token provided");
+   }
+}
+
+module.exports={AuthenticatePatient}
+
+
+//authenticated all
+
+//access denied page and error 404 page
+
+//logout functionality
+
+//feed new fresh data into database using postman
+
+//fech all patient data
+ fetch all doctor admin patient data for admin page
+ fetch indidual patient data
+ make patient profile component
+make git repo
