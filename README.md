@@ -54,6 +54,6 @@ Welcome to the Hospital Website Project repository! This project represents the 
 
 ## Project Draft
 
- [Project Draft](https://docs.google.com/document/d/1bt7A7qcH-6xMMgQovRMyuFCAMPM8dyDw/edit?usp=drive_link&ouid=107137708775605353514&rtpof=true&sd=
+ [Project Draft](https://docs.google.com/document/d/1bt7A7qcH-6xMMgQovRMyuFCAMPM8dyDw/edit?usp=drive_link&ouid=107137708775605353514&rtpof=true&sd=)
 
 Thank you for your interest in the Hospital Website Project. We look forward to your contributions and hope this project serves as a valuable resource for modern healthcare solutions! 🏥🌐🚀
