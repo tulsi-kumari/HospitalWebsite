@@ -1,6 +1,3 @@
-# HospitalWebsite
-Hospital Website Project 🌐 : With React.js, Express.js,Bootstrap, JavaScript, Node.js, and MongoDB, I crafted an innovative hospital website. It offers an immersive user experience, robust registration, authentication, and token-based authorization. Dive into the code and witness the future of healthcare websites! 🏥🚀
-
 # Hospital Website Project - README
 
 Welcome to the Hospital Website Project repository! This project represents the culmination of several development phases aimed at creating a modern and user-friendly hospital website. Below, you'll find an overview of the key development phases and features implemented in this project.
